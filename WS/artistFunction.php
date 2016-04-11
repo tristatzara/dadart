@@ -18,13 +18,6 @@ function GetArtistName($artistid){
   return $db->select('SELECT Name, Surname FROM Artist WHERE Artist.ArtistId = :artistid', array('artistid'=>$artistid));
 }
 
-// Put functions.
-function PutArtist($artistid, $data){
-  $db = GetDb();
-  $update = $db->update('Artist', $data, "ArtistId = '$artisid'");
-  return $update;
-}
-
 // Post functions.
 function PostArtist($newArtist){
   $db = GetDb();

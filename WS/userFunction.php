@@ -39,7 +39,7 @@ function GetPasswordSalt($username){
 
 // Put funcitons.
 function PutPassword($password, $passwordSalt, $userid){
-  try{
+  try{    
     $db = GetDb();
     return $db->update('user', array('Password'=>$password, 'PasswordSalt'=>$passwordSalt), 'UserId = "' . $userid . '"');
   }
