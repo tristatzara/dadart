@@ -14,7 +14,7 @@
 
   function GetAddressProfile($profileId){
     $db = GetDb();
-    return $db->select('SELECT Address, Address2, City, Zip, State FROM Address, Profile  WHERE Address.AddressId = Profile.AddressId AND Profile.ProfileId = :profileId', array('profileId'=>$profileId));
+    return $db->select('SELECT Address, Address2, City, Zip, State FROM Address, Profile WHERE address.ProfileId = :profileId', array('profileId'=>$profileId));
   }
 
   function PostAddress($address){

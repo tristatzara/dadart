@@ -19,7 +19,8 @@
 
   function GetPurchasesProfile($profileId){
     $db = GetDb();
-    return $db->select('SELECT Purchase.* FROM Purchase, Address, Profile WHERE Purchase.AddressId = Address.AddressId AND Address.AddressId = Profile.AddressId AND Profile.ProfileId = :profileId', array('profileId'=>$profileId));
+    echo $profileId;
+    return $db->select('SELECT Purchase.* FROM Purchase, Address WHERE Purchase.AddressId = Address.AddressId AND Address.ProfileId = :profileId', array('profileId'=>$profileId));
   }
 
   function PostPurchase($purchase){

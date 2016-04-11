@@ -27,11 +27,16 @@
 
   $app->group('/api', function() use ($app){
     $app->group('/users', function () use ($app){
+      // Test pass.
       $app->get('/user/:id', function($id){
         echo json_encode(GetUserById($id));
       });
+      // Test pass.
       $app->get('/profile/:id', function($id){
         echo json_encode(GetProfile($id));
+      });
+      $app->get('/profile/product/:profileId', function($profileId){
+        echo json_encode(GetProductByUser($profileId));
       });
       $app->put('/passwordChange', function() use ($app){
         echo json_encode(PutPassword($app->request->params('Password'), $app->request->params('PasswordSalt'), $app->request->params('userId')));
@@ -42,48 +47,47 @@
       $app->post('/newUser', function() use ($app){
         echo json_encode(PostUser(json_decode($app->request->header->get('User'))));
       });
-      $pp->post('/newProfile', function() use ($app){
+      $app->post('/newProfile', function() use ($app){
         echo json_encode(PostProfile(json_decode($app->request->header->get('Profile'))));
       });
     });
     $app->group('/catalog', function() use($app){
-      $app->get('(/:catalogName(/:categoryName(/:subCategoryName+)))', function($catalog = null, $categoryName = null, $subCategoryName = null){
-        if($catalog == null){
-          echo json_encode(GetAllCatalogs());
-          break;
+      // Tested
+      $app->get('(/:catalogName(/:categoryName(/:subCategoryName+)))', function($catalogName = null, $categoryName = null, $subCategoryName = null){
+        $returning = array();
+        if($catalogName == null){
+          $returning = GetAllCatalogs();
         }
-        else if($catalog != null && $categoryName == null){
-          $catalogId = GetCatalogByName($catalog);
-          $categoryId = GetCategoryByCatalogId($catalogId);
-          $categories = new Array();
+        else if($catalogName != null && $categoryName == null){
+          $catalogId = GetCatalogByName($catalogName);
+          $categoryId = GetCategoryByCatalogId($catalogId[0]['CatalogId']);
           foreach ($categoryId as $key => $value) {
-              $categories[] = GetCatalogById($value);
+              $returning[] = GetCategoryById($value['CategoryId']);
           }
-          echo json_encode($categories);
         }
-        else if($catalog != null && $categoryName != null && $subCategoryName == null){
-          $catalogId = GetCatalogByName($catalog);
+        else if($catalogName != null && $categoryName != null && $subCategoryName == null){
+
+          $catalogId = GetCatalogByName($catalogName);
           $categoryId = GetCategoryByName($categoryName);
-          $subCategoriesId = GetSubCategoryByCatalogCategoryId($catalogId, $categoryId);\
-          $subCategories = new Array();
+          $subCategoriesId = GetSubCategoryByCatalogCategoryId($catalogId[0]['CatalogId'], $categoryId[0]['CategoryId']);
           foreach ($subCategoriesId as $key => $value) {
-            $subCategories[] = GetSubCageoryNameById($value);
+            $returning[] = GetSubCageoryNameById($value['SubCategoryId']);
           }
-          echo json_encode($subCategories);
         }
-        else if($catalog != null && $categoryNAme != null && $subCategoryName != null){
-          $ctalogId = GetCatalogByName($catalog);
+        else if($catalogName != null && $categoryNAme != null && $subCategoryName != null){
+          $ctalogId = GetCatalogByName($catalogName);
           $subCategoryId = GetSubCategoryByName(end($subCategoryName));
-          $subCategoriesId = GetSubCategoryByCatalogCategoryId($catalogId, $subCategoryId);
-          $subCategories = new Array();
+          $subCategoriesId = GetSubCategoryByCatalogCategoryId($catalogId[0]['CatalogId'], $subCategoryId[0]['SubCategoryId']);
           foreach ($subCategoriesId as $key => $value) {
-            $subCategories[] = GetSubCategoryById($value);
+            $returning[] = GetSubCategoryById($value['SubCategoryId']);
           }
-          echo json_encode($subCategories);
+
         }
+        echo json_encode($returning);
       });
     });
     $app->group('/address', function() use ($app){
+      // Tested
       $app->get('/:addressId', function($addressId){
         echo json_encode(GetAddress($addressId));
       });
@@ -95,6 +99,7 @@
       });
     });
     $app->group('/products', function() use($app){
+      // Tested All
       $app->get('/all', function(){
         echo json_encode(GetAllProducts());
       });
@@ -104,7 +109,10 @@
       $app->get('/detail/:productId', function($productId){
         echo json_encode(GetProductDetail($productId));
       });
-      $app->get('(/:categoryId(/:subCategoryId+))', function($catgoryId = null, $subCategoryId = null){
+      $app->get('/user/:productId', function($productId){
+        echo json_encode(GetUserProduct($productId));
+      });
+      $app->get('(/:categoryId(/:subCategoryId+))', function($categoryId = null, $subCategoryId = null){
         if($categoryId == null && $subCategoryId == null){
             echo json_encode(GetAllProducts());
         }
@@ -112,17 +120,19 @@
           echo json_encode(GetProductsCategoryList($categoryId));
         }
         else if ($categoryId != null && $subCategoryId != null){
-          echo json_encode(GetProductsSubCategoryList($categorId, end($subCategoryID)));
+          echo json_encode(GetProductsSubCategoryList($categoryId, end($subCategoryID)));
         }
       });
       $app->post('/newProduct', function() use($app){
-        echo json_encode(PostProduct(json_decode($app->request->header->get('product'))))
+        echo json_encode(PostProductToProfile(json_decode($app->request->header->get('profileToProduct'))));
+        echo json_encode(PostProduct(json_decode($app->request->header->get('product'))));
       });
       $app->put('/updatePrice', function() use($app){
         echo json_encode(UpdatePrice($app->request->params('price'), $app->request->params('productId')));
       });
     });
     $app->group('/purchase', function() use($app){
+      // Tested
       $app->get('/all', function(){
         echo json_encode(GetAllPurchase());
       });
@@ -132,7 +142,7 @@
       $app->get('/detail/:purchaseId', function($purchaseId){
         echo json_encode(GetPurchaseDetails($purchaseId));
       });
-      $app->get('/:profileId', function($profileId){
+      $app->get('/profile/:profileId', function($profileId){
         echo json_encode(GetPurchasesProfile($profileId));
       });
       $app->post('/newPurchse', function() use($app){
@@ -143,13 +153,14 @@
       });
     });
     $app->group('/artist', function() use($app){
+      // Tested.
       $app->get('/all', function(){
         echo json_encode(GetArtists());
       });
       $app->get('/detail/:artistiId', function($artistId){
         echo json_encode(GetArtist($artistId));
       });
-      $app->get('/product/:artistId', function($artistiId){
+      $app->get('/product/:artistId', function($artistId){
         echo json_encode(GetArtistName($artistId));
       });
       $app->post('/insertArtisti', function() use($app){

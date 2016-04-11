@@ -24,7 +24,7 @@ function GetCategoryByCatalogId($catalogId){
 
 function GetCategoryByName($categoryName){
   $db = GetDb();
-  return $db->select('SELECT CategoryId FROM Category.Name = :categoryName', array('categoryName'=>$categoryName));
+  return $db->select('SELECT CategoryId FROM Category WHERE Category.Name = :categoryName', array('categoryName'=>$categoryName));
 }
 
 function GetSubCategoryByName($categoryName){

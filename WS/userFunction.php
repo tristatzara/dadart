@@ -37,9 +37,14 @@ function GetPasswordSalt($username){
   return $db->select('SELECT PasswordSalt FROM User WHERE User.Username = :username', array('username' => $username));
 }
 
+function GetProductByUser($profileId){
+  $db = GetDb();
+  return $db->select('SELECT Product.ProductId, Product.Name FROM ProfileToProduct, Product WHERE Product.ProductId = ProfileToProduct.ProductId AND ProfileToProduct.ProfileId = :profileId', array('profileId'=>$profileId));
+}
+
 // Put funcitons.
 function PutPassword($password, $passwordSalt, $userid){
-  try{    
+  try{
     $db = GetDb();
     return $db->update('user', array('Password'=>$password, 'PasswordSalt'=>$passwordSalt), 'UserId = "' . $userid . '"');
   }

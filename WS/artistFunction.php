@@ -5,7 +5,7 @@ require_once('/lib/Config.php');
 // Get functions.
 function GetArtists(){
   $db = GetDb();
-  return $db->select('SELECT Name, Surname, Image FROM  Artist');
+  return $db->select('SELECT ArtistId, Name, Surname, Image FROM  Artist');
 }
 
 function GetArtist($artistid){
