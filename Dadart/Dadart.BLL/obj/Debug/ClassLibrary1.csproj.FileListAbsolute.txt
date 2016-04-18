@@ -1,0 +1,15 @@
+C:\Work\VisualStudioWorspace\dadart\Dadart\ClassLibrary1\bin\Debug\ClassLibrary1.dll.config
+C:\Work\VisualStudioWorspace\dadart\Dadart\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Work\VisualStudioWorspace\dadart\Dadart\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Work\VisualStudioWorspace\dadart\Dadart\ClassLibrary1\bin\Debug\Newtonsoft.Json.dll
+C:\Work\VisualStudioWorspace\dadart\Dadart\ClassLibrary1\bin\Debug\System.Net.Http.Extensions.dll
+C:\Work\VisualStudioWorspace\dadart\Dadart\ClassLibrary1\bin\Debug\System.Net.Http.Formatting.dll
+C:\Work\VisualStudioWorspace\dadart\Dadart\ClassLibrary1\bin\Debug\System.Net.Http.Primitives.dll
+C:\Work\VisualStudioWorspace\dadart\Dadart\ClassLibrary1\bin\Debug\Newtonsoft.Json.xml
+C:\Work\VisualStudioWorspace\dadart\Dadart\ClassLibrary1\bin\Debug\System.Net.Http.Extensions.xml
+C:\Work\VisualStudioWorspace\dadart\Dadart\ClassLibrary1\bin\Debug\System.Net.Http.Formatting.xml
+C:\Work\VisualStudioWorspace\dadart\Dadart\ClassLibrary1\bin\Debug\System.Net.Http.Primitives.xml
+C:\Work\VisualStudioWorspace\dadart\Dadart\ClassLibrary1\obj\Debug\ClassLibrary1.csproj.App.config
+C:\Work\VisualStudioWorspace\dadart\Dadart\ClassLibrary1\obj\Debug\ClassLibrary1.csprojResolveAssemblyReference.cache
+C:\Work\VisualStudioWorspace\dadart\Dadart\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Work\VisualStudioWorspace\dadart\Dadart\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
