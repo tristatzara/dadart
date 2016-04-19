@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary1.Model.Catalog
+namespace Dadart.BLL.Model.Catalog
 {
     class Category
     {

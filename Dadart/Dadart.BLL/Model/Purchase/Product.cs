@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary1.Model.Purchase
+namespace Dadart.BLL.Model.Purchase
 {
     class Product
     {
@@ -12,6 +12,6 @@ namespace ClassLibrary1.Model.Purchase
         public string Name { get; set; }
         public float Price { get; set; }
         public string Thumb { get; set; }
-        public string ShortDesc { get; set; }
+        public string ShortDescription { get; set; }
     }
 }

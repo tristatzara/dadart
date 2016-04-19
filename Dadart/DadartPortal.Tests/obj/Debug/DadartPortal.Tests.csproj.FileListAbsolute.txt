@@ -31,7 +31,6 @@ C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\bin\Debug\Microsof
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\bin\Debug\Owin.dll
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\bin\Debug\ClassLibrary1.dll
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\bin\Debug\EntityFramework.dll
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\bin\Debug\System.Net.Http.Formatting.dll
@@ -50,10 +49,11 @@ C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\bin\Debug\Microsof
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\bin\Debug\Microsoft.Owin.Security.xml
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\bin\Debug\ClassLibrary1.pdb
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\bin\Debug\EntityFramework.xml
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\bin\Debug\System.Net.Http.Formatting.xml
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\obj\Debug\DadartPortal.Tests.csprojResolveAssemblyReference.cache
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\obj\Debug\DadartPortal.Tests.dll
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\obj\Debug\DadartPortal.Tests.pdb
+C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\bin\Debug\Dadart.BLL.dll
+C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal.Tests\bin\Debug\Dadart.BLL.pdb

@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dadart.BLL.Model.Catalog
+namespace Dadart.BLL.Model.Cart
 {
     class Product
     {
         public Guid ProductId { get; set; }
         public string Name { get; set; }
-        public string ShortDesc { get; set; }
-        public string THumb { get; set; }
-        public Guid ArtistId { get; set; }
-        
+        public float Price { get; set; }
+        public string CartDescription { get; set; }
+        public string Thumb { get; set; }
     }
 }

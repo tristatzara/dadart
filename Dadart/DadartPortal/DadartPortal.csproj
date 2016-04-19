@@ -251,7 +251,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\Dadart.BLL.csproj">
+    <ProjectReference Include="..\Dadart.BLL\Dadart.BLL.csproj">
       <Project>{3df76a15-4f50-4d46-8ad0-dda350a0de93}</Project>
       <Name>Dadart.BLL</Name>
     </ProjectReference>

@@ -14,7 +14,6 @@ C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\bin\DadartPortal.dll.con
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\bin\DadartPortal.dll
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\bin\DadartPortal.pdb
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\bin\Antlr3.Runtime.dll
-C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\bin\ClassLibrary1.dll
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\bin\EntityFramework.dll
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\bin\EntityFramework.SqlServer.dll
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\bin\Microsoft.AspNet.Identity.Core.dll
@@ -42,7 +41,6 @@ C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\bin\System.Web.WebPages.
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\bin\System.Web.WebPages.dll
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\bin\System.Web.WebPages.Razor.dll
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\bin\WebGrease.dll
-C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\bin\ClassLibrary1.pdb
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\bin\System.Net.Http.Formatting.xml
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\bin\System.Web.Helpers.xml
@@ -71,3 +69,5 @@ C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\bin\Microsoft.Owin.Secur
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\obj\Debug\DadartPortal.csprojResolveAssemblyReference.cache
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\obj\Debug\DadartPortal.dll
 C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\obj\Debug\DadartPortal.pdb
+C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\bin\Dadart.BLL.dll
+C:\Work\VisualStudioWorspace\dadart\Dadart\DadartPortal\bin\Dadart.BLL.pdb

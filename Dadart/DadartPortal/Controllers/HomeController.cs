@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using ClassLibrary1.Model;
+using Dadart.BLL.Model;
 using System.Web.Mvc;
 using System.Threading.Tasks;
 
@@ -35,7 +35,7 @@ namespace DadartPortal.Controllers
 
         public void Test(CatalogModel c)
         {
-            var catalog = c.GetCatalog();
+
             
         }
     }
