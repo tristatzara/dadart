@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dadart.BLL.Model.User
 {
-    class User
+    public class User
     {
         public Guid UserId { get; set; }
         public string Username { get; set; }

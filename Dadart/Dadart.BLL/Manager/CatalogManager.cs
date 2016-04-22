@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Dadart.BLL.Manager
 {
-    class CatalogManager : DefaultManager
+    public class CatalogManager : DefaultManager
     {
         
         public CatalogManager():base()

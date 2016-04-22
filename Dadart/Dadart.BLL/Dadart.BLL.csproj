@@ -38,8 +38,10 @@
     <Compile Include="Manager\CatalogManager.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Manager\DefaultManager.cs" />
+    <Compile Include="Manager\ProfileManager.cs" />
     <Compile Include="Model\Cart\Product.cs" />
     <Compile Include="Model\Product\Artist.cs" />
+    <Compile Include="Model\Product\ProductProfile.cs" />
     <Compile Include="Model\User\Address.cs" />
     <Compile Include="Model\Catalog\Artist.cs" />
     <Compile Include="Model\Catalog\Catalog.cs" />

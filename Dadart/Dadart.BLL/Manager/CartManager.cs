@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Dadart.BLL.Manager
 {
-    class CartManager : DefaultManager
+    public class CartManager : DefaultManager
     {
         public CartManager():base()
         {           
@@ -27,6 +27,17 @@ namespace Dadart.BLL.Manager
             {
                 throw;
             }
-        }  
+        } 
+        public void PostCartProduct(Product cartProduct)
+        {
+            try
+            {
+                
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        } 
     }
 }

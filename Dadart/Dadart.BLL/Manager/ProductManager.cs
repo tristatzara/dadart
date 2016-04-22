@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Dadart.BLL.Manager
 {
-    class ProductManager : DefaultManager
+    public class ProductManager : DefaultManager
     {
         
         public ProductManager():base()
@@ -61,6 +61,49 @@ namespace Dadart.BLL.Manager
                 throw;
             }
         }
+        
+        public string PostProduct(Product product, Profile profile)
+        {
+            try
+            {
+                var response = Client.PostAsJsonAsync<Product>("WebService.php/api/products/newProduct", product).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    var productProfile = new ProductProfile()
+                    {
+                        ProductId = product.ProductId,
+                        ProfileId = profile.ProfileId
+                    };
+                    response = Client.PostAsJsonAsync("WebService.php/api/products/addProductToProfile", productProfile).Result;
+                    if (response.IsSuccessStatusCode)
+                        return "L'inserimento del nuovo prodotto è andato a buon fine.";
+                }
 
+                    
+                throw new Exception("Vi è stato un problema con l'inserimento del nuovo prodotto. Prego riprovare più tardi.");
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+        }
+
+        public void PutPrice(Product product)
+        {
+            try
+            {
+                var response = Client.GetAsync("WebService.php/api/products/detail/" + product.ProductId).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    var url = response.Headers.Location;
+
+                    response = Client.PutAsJsonAsync(url, product).Result;
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception( "Vi è stato un problema con l'aggiornamento del prezzo del prodotto, riprovare più tardi.");
+            }
+        }
     }
 }

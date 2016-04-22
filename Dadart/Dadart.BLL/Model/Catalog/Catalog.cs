@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dadart.BLL.Model.Catalog
 {
-    class Catalog
+    public class Catalog
     {
         public string Name { get; set; }
         public string DisplayName { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dadart.BLL.Manager
 {
-    class DefaultManager
+    public class DefaultManager
     {
         private HttpClient _client;
 

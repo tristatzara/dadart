@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dadart.BLL.Model.Purchase
 {
-    class Purchase
+    public class Purchase
     {
         public Guid PurchaseId { get; set; }
         public float Ammount { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dadart.BLL.Model.Product
 {
-    class Artist
+    public class Artist
     {
         public Guid ArtistId { get; set; }
         public string Name { get; set; }

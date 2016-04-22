@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dadart.BLL.Model.Product
 {
-    public class Profile
+    class ProductProfile
     {
+        public Guid ProductId { get; set; }
         public Guid ProfileId { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
     }
 }
