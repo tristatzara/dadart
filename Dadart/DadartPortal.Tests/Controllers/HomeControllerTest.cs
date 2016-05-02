@@ -32,7 +32,7 @@ namespace DadartPortal.Tests.Controllers
             HomeController controller = new HomeController();
 
             // Act
-            ViewResult result = controller.About() as ViewResult;
+            ViewResult result = controller.Grafiche() as ViewResult;
 
             // Assert
             Assert.AreEqual("Your application description page.", result.ViewBag.Message);
@@ -45,7 +45,7 @@ namespace DadartPortal.Tests.Controllers
             HomeController controller = new HomeController();
 
             // Act
-            ViewResult result = controller.Contact() as ViewResult;
+            ViewResult result = controller.Sculture() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);

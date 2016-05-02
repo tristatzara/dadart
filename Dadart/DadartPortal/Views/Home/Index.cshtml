@@ -1,31 +1,115 @@
-﻿@{
+﻿@model DadartPortal.Models.HomeViewModel
+@{
     ViewBag.Title = "Home Page";
 }
+@Html.Partial("_CartWidget")
+<div class="clearfix colelem" id="pu1600-4">
+    <!-- group -->
+    <div class="clearfix grpelem" id="u1600-4">
+        <!-- content -->
+        <p>Noi consigliamo...</p>
+    </div>
+    <div class="clip_frame grpelem" id="u1595">
+        <!-- image -->
+        <img class="block" id="u1595_img" src="@Url.Content(Model.TodayProduct.Thumb)" alt="" width="294" height="396" />
+    </div>
+    <div class="clearfix grpelem" id="pu1594-12">
+        <!-- column -->
+        <div class="clearfix colelem" id="u1594-12">
+            @Html.DisplayFor(model => Model.TodayProduct.Name)
+            @Html.DisplayFor(model => Model.TodayProduct.ShortDescription)
+            <p>Realizzato da:</p>
+            @{
+                 var todayArtistName = Model.TodayArtist.Name + " " + Model.TodayArtist.Surname;
+            }
+            @Html.DisplayFor(model => todayArtistName)
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.HiddenFor(model => Model.TodayProduct.ProductId)
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+            <div class="Button clearfix colelem" id="buttonu1597">
+
+                <input type="submit" class="clearfix grpelem" id="u1598-4" value="Aggiungi al Carrello" />
+            </div>
+        }
+    </div>
 </div>
+<div class="colelem" id="u1602"><!-- simple frame --></div>
+<div class="clearfix colelem" id="pu1603-4">
+    <!-- group -->
+    <div class="clearfix grpelem" id="u1603-4">
+        <!-- content -->
+        <p>Offerta del giorno...</p>
+    </div>
+    @{
+        var product = @Model.ProdictList.ElementAt(0);
+        var artist = @Model.ArtistList.ElementAt(0);
+    }
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <div class="clearfix grpelem pu1604" id="">
+        <!-- column -->
+        <div class="clip_frame colelem u1604" id="">
+            <!-- image -->
+            <img class="block" id="u1604_img" src="@Url.Content(product.Thumb)" alt="" width="193" height="238" />
+        </div>
+        <div class="clearfix colelem pu1606-8" id="">
+            <!-- group -->
+            <div class="clearfix grpelem u1606-8" id="">
+                <!-- content -->
+                @Html.DisplayFor(model => product.ShortDescription)
+                <p>Realizzato da:</p>
+                @{
+                    var artistName = artist.Name + " " + artist.Surname;
+                }
+                @Html.DisplayFor(model => artistName)
+
+            </div>
+
+            @using (Html.BeginForm())
+            {
+                @Html.HiddenFor(model => product.ProductId)
+                <div class="Button clearfix grpelem buttonu1607" id="">
+                    <!-- container box -->
+                    <input type="submit" value="Aggiungi al Carrello" class="clearfix grpelem u1608-4"/>
+                </div>
+
+            }
+
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="clearfix grpelem pu1611" id="">
+        <!-- column -->
+        @{
+            product = Model.ProdictList.ElementAt(1);
+            artist = Model.ArtistList.ElementAt(1);
+        }
+        <div class="clip_frame colelem u1611" id="">
+            <!-- image -->
+            <img class="block" id="u1611_img" src="@Url.Content(product.Thumb)" alt="" width="194" height="259" />
+        </div>
+        <div class="clearfix colelem pu1610-8" id="">
+            <!-- group -->
+            <div class="clearfix grpelem u1610-8" id="">
+                <!-- content -->
+                @Html.DisplayFor(model => product.ShortDescription)
+                <p>Realizzato da:</p>
+                @{
+                     artistName = artist.Name + " " + artist.Surname;
+                }
+                @Html.DisplayFor(model => artistName)
+            </div>
+            @using (Html.BeginForm())
+            {
+                @Html.HiddenFor(model => product.ProductId)
+                <div class="Button clearfix grpelem buttonu1613" id="">
+                    <!-- container box -->
+                   
+                    <input type="submit" class="clearfix grpelem u1614-4" value="Aggiungi al Carrello"/>
+                </div>
+            }
+
+
+        </div>
     </div>
 </div>

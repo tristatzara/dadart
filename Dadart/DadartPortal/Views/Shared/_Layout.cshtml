@@ -3,40 +3,80 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Portale Shopping</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Dadart/css")
+    @Scripts.Render("~/Dadart/script")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <div class="clearfix" id="page">
+        <!-- column -->
+        <div class="clearfix colelem" id="pu389">
+            <!-- group -->
+            <div class="clip_frame grpelem" id="u389">
+                <!-- image -->
+                <a href="@Url.Action("Index", "Home")">
+                    <img class="block" id="u389_img" src="@Url.Content("~/images/logodadart.jpg")" width="206" height="50"/>
+                </a>     
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+            <div class="clearfix grpelem" id="u1118-6">
+                @ViewBag.Quote
+            </div>
+
+
+
+            <nav class="MenuBar clearfix colelem" id="menuu391">
+                <!-- horizontal box -->
+                <div class="MenuItemContainer clearfix grpelem" id="u406">
+                    <!-- vertical box -->
+                    @Html.ActionLink("Home", "Index", "Home",null, new {@class = "nonblock nontext MenuItem MenuItemWithSubMenu  clearfix colelem MenuItemLabel NoWrap grpelem" })
+                </div>
+                <div class="MenuItemContainer clearfix grpelem" id="u392">
+                    <!-- vertical box -->
+                    @Html.ActionLink("Grafiche", "Grafiche", "Home", null, new { @class = "nonblock nontext MenuItem MenuItemWithSubMenu  clearfix colelem MenuItemLabel NoWrap grpelem"})
+                </div>
+                <div class="MenuItemContainer clearfix grpelem" id="u420">
+                    <!-- vertical box -->
+                    @Html.ActionLink("Sculture", "Sculture", "Home", null, new { @class = "nonblock nontext MenuItem MenuItemWithSubMenu  clearfix colelem MenuItemLabel NoWrap grpelem"})
+                </div>
+                <div class="MenuItemContainer clearfix grpelem" id="u399">
+                    <!-- vertical box -->
+                    @Html.ActionLink("Disegni", "Disegni", "Home", null, new { @class = "nonblock nontext MenuItem MenuItemWithSubMenu  clearfix colelem MenuItemLabel NoWrap grpelem"})
+                </div>
+                <div class="MenuItemContainer clearfix grpelem" id="u427">
+                    <!-- vertical box -->
+                    @Html.ActionLink("Fotografia", "Fotografia", "Home", null, new { @class = "nonblock nontext MenuItem MenuItemWithSubMenu  clearfix colelem MenuItemLabel NoWrap grpelem"})
+                </div>
+                @*<div class="MenuItemContainer clearfix grpelem">
+                    @Html.Partial("_LoginPartial")                    
+                </div>*@
                 @Html.Partial("_LoginPartial")
-            </div>
+            </nav>
+        </div>
+
+        <div class="colelem">
+
+            @RenderBody()
+
+            <div class="colelem" id="u435"><!-- simple frame --></div>
+            <div class="vericalspacer"></div>
+            <footer >
+                <div class="clearfix colelem" id="pbuttonu445">
+                    <div class="Button rounded-corners clearfix grpelem" id="buttonu445">
+                        <div class="clearfix grpelem" id="u446-4">
+                            <p>&copy; @DateTime.Now.Year - DadArt</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </footer>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-
+    
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

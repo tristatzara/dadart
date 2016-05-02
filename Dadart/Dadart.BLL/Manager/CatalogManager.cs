@@ -111,10 +111,20 @@ namespace Dadart.BLL.Manager
         {
             try
             {
-                var response = Client.GetAsync("/WebService.php/api/products/all").Result;
-                if (response.IsSuccessStatusCode)
-                    return response.Content.ReadAsAsync<List<Product>>().Result;
-                throw new Exception();
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("http://localhost:8081/");
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                    var response = client.GetAsync("ws/WebService.php/api/products/all").Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var x = response.Content.ReadAsAsync<ICollection<Product>>().Result;
+                        return x.ToList();
+                    }
+                    throw new Exception();
+                }
+                
             }
             catch(Exception ex)
             {
@@ -126,9 +136,9 @@ namespace Dadart.BLL.Manager
         {
             try
             {
-                var response = Client.GetAsync("/WebService.php/api/artist/product/" + artistId).Result;
+                var response = Client.GetAsync("ws/WebService.php/api/artist/product/" + artistId).Result;
                 if (response.IsSuccessStatusCode)
-                    return response.Content.ReadAsAsync<Artist>().Result;
+                    return response.Content.ReadAsAsync<ICollection<Artist>>().Result.FirstOrDefault();
                 throw new Exception();
             }
             catch(Exception){

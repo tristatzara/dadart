@@ -8,6 +8,7 @@ namespace Dadart.BLL.Model.Catalog
 {
     public class Category
     {
+        public Guid CategoryId { get; set; }
         public string Name { get; set; }
         public string DisplayName { get; set; }
     }
