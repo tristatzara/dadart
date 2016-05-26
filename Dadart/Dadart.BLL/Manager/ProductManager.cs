@@ -17,6 +17,8 @@ namespace Dadart.BLL.Manager
                 
         }
 
+        
+
         public Product GetProductDetail(string productId)
         {
             try

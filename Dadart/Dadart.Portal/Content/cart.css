@@ -42,6 +42,11 @@
 	margin-left: 361px;
 }
 
+#buttonu1000:hover
+{
+	opacity: 1.0;
+}
+
 #pbuttonu1000
 {
 	width: 0.01px;

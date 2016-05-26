@@ -15,6 +15,21 @@ namespace Dadart.BLL.Manager
         {
         }
 
+        public List<Product> GetAllProduct()
+        {
+            try
+            {
+                var response = Client.GetAsync("WebService.php/api/product/all").Result;
+                if (response.IsSuccessStatusCode)
+                    return response.Content.ReadAsAsync<List<Product>>().Result;
+                throw new Exception();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public List<Catalog> GetAllCatalog()
         {
             try
@@ -107,30 +122,30 @@ namespace Dadart.BLL.Manager
             }
         }
 
-        public List<Product> GetAllProduct()
-        {
-            try
-            {
-                using (var client = new HttpClient())
-                {
-                    client.BaseAddress = new Uri("http://localhost:8081/");
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-                    var response = client.GetAsync("ws/WebService.php/api/products/all").Result;
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var x = response.Content.ReadAsAsync<ICollection<Product>>().Result;
-                        return x.ToList();
-                    }
-                    throw new Exception();
-                }
+        //public List<Product> GetAllProduct()
+        //{
+        //    try
+        //    {
+        //        using (var client = new HttpClient())
+        //        {
+        //            client.BaseAddress = new Uri("http://localhost:8081/");
+        //            client.DefaultRequestHeaders.Accept.Clear();
+        //            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+        //            var response = client.GetAsync("ws/WebService.php/api/products/all").Result;
+        //            if (response.IsSuccessStatusCode)
+        //            {
+        //                var x = response.Content.ReadAsAsync<ICollection<Product>>().Result;
+        //                return x.ToList();
+        //            }
+        //            throw new Exception();
+        //        }
                 
-            }
-            catch(Exception ex)
-            {
-                throw;
-            }
-        }
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        throw;
+        //    }
+        //}
 
         public Artist GetArtist(string artistId)
         {
