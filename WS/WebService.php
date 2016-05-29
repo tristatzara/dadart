@@ -11,6 +11,8 @@
     'mode'=>'dev'
   ));
 
+  $app->response()->header('Content-Type', 'application/json');
+
   $app->configureMode('prod', function () use ($app){
     $app->config(array(
       'log.enable' => true,
@@ -62,7 +64,7 @@
           $catalogId = GetCatalogByName($catalogName);
           $categoryId = GetCategoryByCatalogId($catalogId[0]['CatalogId']);
           foreach ($categoryId as $key => $value) {
-              $returning[] = GetCategoryById($value['CategoryId']);
+              $returning[] = GetCategoryById($value['CategoryId'])[0];
           }
         }
         else if($catalogName != null && $categoryName != null && $subCategoryName == null){
@@ -71,7 +73,7 @@
           $categoryId = GetCategoryByName($categoryName);
           $subCategoriesId = GetSubCategoryByCatalogCategoryId($catalogId[0]['CatalogId'], $categoryId[0]['CategoryId']);
           foreach ($subCategoriesId as $key => $value) {
-            $returning[] = GetSubCageoryNameById($value['SubCategoryId']);
+            $returning[] = GetSubCageoryNameById($value['SubCategoryId'])[0];
           }
         }
         else if($catalogName != null && $categoryNAme != null && $subCategoryName != null){
@@ -79,7 +81,7 @@
           $subCategoryId = GetSubCategoryByName(end($subCategoryName));
           $subCategoriesId = GetSubCategoryByCatalogCategoryId($catalogId[0]['CatalogId'], $subCategoryId[0]['SubCategoryId']);
           foreach ($subCategoriesId as $key => $value) {
-            $returning[] = GetSubCategoryById($value['SubCategoryId']);
+            $returning[] = GetSubCategoryById($value['SubCategoryId'])[0];
           }
 
         }
@@ -112,12 +114,12 @@
       $app->get('/user/:productId', function($productId){
         echo json_encode(GetUserProduct($productId));
       });
-      $app->get('(/:categoryId(/:subCategoryId+))', function($categoryId = null, $subCategoryId = null){
-        if($categoryId == null && $subCategoryId == null){
+      $app->get('(/:categoryId(/:subCategoryId+))', function($categoryName = null, $subCategoryId = null){
+        if($categoryName == null && $subCategoryId == null){
             echo json_encode(GetAllProducts());
         }
-        else if ($categoryId != null && $subCategoryId == null){
-          echo json_encode(GetProductsCategoryList($categoryId));
+        else if ($categoryName != null && $subCategoryId == null){
+          echo json_encode(GetProductsCategoryList($categoryName));
         }
         else if ($categoryId != null && $subCategoryId != null){
           echo json_encode(GetProductsSubCategoryList($categoryId, end($subCategoryID)));

@@ -4,27 +4,27 @@
 
   function GetAllProducts(){
     $db = GetDb();
-    return $db->select('SELECT ProductId, Name, Price, Auction, Increment, Weight, CartDescription, ShortDescription, LongDescription, Thumb, Image, ArtistId, CategoryId, SubCategoryId FROM Product');
+    return $db->select('SELECT ProductId, ProductName, Price, Auction, Increment, Weight, CartDescription, ShortDescription, LongDescription, Thumb, Image, ArtistId, CategoryId, SubCategoryId FROM Product');
   }
 
-  function GetProductsCategoryList($categoryId){
+  function GetProductsCategoryList($categoryName){
     $db = GetDb();
-    return $db->select('SELECT ProductId, Name, Price, Auction, Increment, ShortDescription, Thumb, ArtistId FROM Product WHERE Product.CategoryId = :categoryId', array('categoryId'=>$categoryId));
+    return $db->select('SELECT ProductId, ProductName, Price, Auction, Increment, ShortDescription, Thumb, ArtistId FROM Product,Category WHERE Product.CategoryId = Category.CategoryId AND Category.Name = :categoryName', array('categoryName'=>$categoryName));
   }
 
   function GetProductsSubCategoryList($categoryId, $subCategoryId){
     $db = GetDb();
-    return $db->select('SELECT ProductId, Name, Price, Auction, Increment, ShortDescription, Thumb, ArtistId FROM Product WHERE Product.CategoryId = :categoryId AND Product.SubCategoryId = :subCategoryId', array('categoryId'=>$categoryId, 'subCategoryId'=>$subCategoryId));
+    return $db->select('SELECT ProductId, ProductName, Price, Auction, Increment, ShortDescription, Thumb, ArtistId FROM Product WHERE Product.CategoryId = :categoryId AND Product.SubCategoryId = :subCategoryId', array('categoryId'=>$categoryId, 'subCategoryId'=>$subCategoryId));
   }
 
   function GetProductDetail($productId){
     $db = GetDb();
-    return $db->select('SELECT ProductId, Name, Price, Auction, Increment, Weight, LongDescription, Image, ArtistId FROM Product WHERE Product.ProductId = :productId', array('productId'=>$productId));
+    return $db->select('SELECT ProductId, ProductName, Price, Auction, Increment, Weight, LongDescription, Image, ArtistId FROM Product WHERE Product.ProductId = :productId', array('productId'=>$productId));
   }
 
   function GetProductCart($productId){
     $db = GetDb();
-    return $db->select('SELECT ProductId, Name, Price, CartDescription, Thumb FROM Product WHERE Product.ProductId = :productId', array('productId'=>$productId));
+    return $db->select('SELECT ProductId, ProductName, Price, CartDescription, Thumb FROM Product WHERE Product.ProductId = :productId', array('productId'=>$productId));
   }
 
   function GetUserProduct($productId){

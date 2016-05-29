@@ -1,4 +1,5 @@
-﻿
+﻿@using Dadart.BLL.Model.Cart
+@model Dadart.Portal.Models.MainViewModel
 @{
     ViewBag.Title = "Dipinti";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,6 +9,28 @@
 <div class="row">
     <div class="col-md-3">
         @Html.Partial("_DisegniMenu")
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            @foreach (var product in Model.ProductList)
+            {
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="@product.Product.Thumb"/>
+                        </div>
+                        <div class="col-md-6">
+                            <div>@product.Product.ProductName</div>
+                            <div>@product.Product.ShortDescription</div>
+                            <div>@product.Artist.Name &nbsp; @product.Artist.Surname</div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="col-md-3">
+        @Html.Partial("_Cart")
     </div>
 </div>
 

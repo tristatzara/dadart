@@ -1,4 +1,4 @@
-﻿
+﻿@model Dadart.Portal.Models.MainViewModel
 @{
     ViewBag.Title = "Fotografia";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,10 +9,56 @@
         @Html.Partial("_FotografiaMenu")
     </div>
     <div class="col-md-6">
-        <h2>Fotografia</h2>
+        <div class="row">
+            <div class="col-md-2" style="color: red;">
+                Noi Consigliamo...
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-6">
+                        @{
+                            var randomNumber = new Random().Next(Model.ProductList.Count);
+                            var product = Model.ProductList.ElementAt(randomNumber);                           
+                        }
+                        <img src="@product.Product.Thumb" />
+                        <div class="col-md-6">
+                            <div>@product.Product.ProductName</div>
+                            <div>@product.Product.ShortDescription</div>
+                            <div>@product.Artist.Name &nbsp; @product.Artist.Surname</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <hr />
+        </div>
+        <div class="row">
+            <div class="col-md-2" style="color: red">
+                Offerta del giorno...
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    @foreach (var p in Model.ProductList)
+                    {
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="@p.Product.Thumb" />
+                                </div>
+                                <div class="col-md-6">
+                                    <div>@p.Product.ProductName</div>
+                                    <div>@p.Product.ShortDescription</div>                                    
+                                    <div>@p.Artist.Name &nbsp; @p.Artist.Surname</div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
     </div>
     <div class="col-md-3">
         @Html.Partial("_Cart")
     </div>
 </div>
-

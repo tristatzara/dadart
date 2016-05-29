@@ -16,11 +16,17 @@ namespace Dadart.Portal.Controllers
             ViewBag.Quote =
                 "\"Da quanto tempo le parole esprimono il contrario di ciò che l'organo che le emette pensa e vuole?\" \n Tristan Tzara, Manifesto IV 1918";
             var manager = new CatalogManager();
-            var viewModel = new IndexViewModel();            
-            viewModel.ProductList = manager.GetAllCategoryProduct("Fotografie");
-            foreach(var product in viewModel.ProductList)
+            var viewModel = new MainViewModel();
+            viewModel.ProductList = new List<ProductView>();
+            var products = manager.GetAllCategoryProduct("Fotografie");
+            foreach (var product in products)
             {
-                viewModel.ArtistList.Add(manager.GetArtist(product.ArtistId.ToString()));
+                var productView = new ProductView()
+                {
+                    Product = product,
+                    Artist = manager.GetArtist(product.ArtistId.ToString())
+                };
+                viewModel.ProductList.Add(productView);
             }
             return View(viewModel);
         }
@@ -30,11 +36,17 @@ namespace Dadart.Portal.Controllers
             ViewBag.Quote =
                 "\"(...) urlo urlo urlo urlo urlo urlo urlo(...) \n E ancora una volta mi trovo veramente simpatico\"\n Tristan Tzara, Manifesto XVI (ultimo) 1918";
             var manager = new CatalogManager();
-            var viewModel = new IndexViewModel();
-            viewModel.ProductList = manager.GetAllCategoryProduct("Collage");
-            foreach (var product in viewModel.ProductList)
+            var viewModel = new MainViewModel();
+            viewModel.ProductList = new List<ProductView>();
+            var products = manager.GetAllCategoryProduct("Collage");
+            foreach (var product in products)
             {
-                viewModel.ArtistList.Add(manager.GetArtist(product.ArtistId.ToString()));
+                var productView = new ProductView()
+                {
+                    Product = product,
+                    Artist = manager.GetArtist(product.ArtistId.ToString())
+                };
+                viewModel.ProductList.Add(productView);
             }
             return View(viewModel);
         }
@@ -44,11 +56,16 @@ namespace Dadart.Portal.Controllers
             ViewBag.Quote =
                 "\"(...) i critici dicono: Dada fa del lusso, Dada è in fregola.Anche Dio fa del lusso o è in fregola: Chi è che ha ragione: Dio, Dada o la critica?\" \n Tristan Tzara, Manifesto XV 1918";
             var manager = new CatalogManager();
-            var viewModel = new IndexViewModel();
-            viewModel.ProductList = manager.GetAllCategoryProduct("Fotomontaggi");
-            foreach (var product in viewModel.ProductList)
+            var viewModel = new MainViewModel();
+            var products = manager.GetAllCategoryProduct("Fotomontaggi");
+            foreach (var product in products)
             {
-                viewModel.ArtistList.Add(manager.GetArtist(product.ArtistId.ToString()));
+                var productView = new ProductView()
+                {
+                    Product = product,
+                    Artist = manager.GetArtist(product.ArtistId.ToString())
+                };
+                viewModel.ProductList.Add(productView);
             }
             return View(viewModel);
         }

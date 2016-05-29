@@ -15,12 +15,17 @@ namespace Dadart.Portal.Controllers
             ViewBag.Quote =
                 "\"La magia di una parola - DADA - che ha messo i giornalisti davanti alla porta di un mondo imprevisto, non ha per noi alcuna importanza\" \n Tristan Tzara, Manifesto Dada 1918";
             var manager = new CatalogManager();
-            var viewModel = new IndexViewModel();
-            viewModel.ProductList = manager.GetAllProduct();
-            foreach(var product in viewModel.ProductList)
+            var viewModel = new MainViewModel();
+            viewModel.ProductList = new List<ProductView>();
+            var list = manager.GetAllProduct();
+            foreach(var product in list)
             {
-                var artist = manager.GetArtist(product.ArtistId.ToString());
-                viewModel.ArtistList.Add(artist);
+                var productView = new ProductView()
+                {
+                    Product = product,
+                    Artist = manager.GetArtist(product.ArtistId.ToString())
+                };                                
+                viewModel.ProductList.Add(productView);
             }
 
             return View(viewModel);
@@ -30,16 +35,20 @@ namespace Dadart.Portal.Controllers
         {
             ViewBag.Quote = "\"Imporre il proprio A.B.C.è una cosa naturale, \n e perciò deplorevole.\" \n Tristan Tzara, Manifesto Dada 1918";
             var manager = new CatalogManager();
-            var viewModel = new IndexViewModel();
-            var categories = manager.GetAllCategory("Grafihce");
+            var viewModel = new MainViewModel();
+            viewModel.ProductList = new List<ProductView>();
+            var categories = manager.GetAllCategory("graphics");
             foreach(var category in categories)
             {
-                var productManager = new ProductManager();
                 var productList = manager.GetAllCategoryProduct(category.Name);
                 foreach (var product in productList)
                 {
-                    viewModel.ProductList.Add(product);
-                    viewModel.ArtistList.Add(manager.GetArtist(product.ArtistId.ToString()));
+                    var productView = new ProductView()
+                    {
+                        Product = product,
+                        Artist = manager.GetArtist(product.ArtistId.ToString())
+                    };
+                    viewModel.ProductList.Add(productView);
                 }
             }
             return View(viewModel);
@@ -51,16 +60,20 @@ namespace Dadart.Portal.Controllers
             ViewBag.Quote =
                 "\"L’arte è una cosa privata, l’artista la fa per se stesso; un'opera comprensibile è un prodotto da giornalisti\" Tristan Tzara, La spontaneità dadaista 1918";
             var manager = new CatalogManager();
-            var viewModel = new IndexViewModel();
+            var viewModel = new MainViewModel();
+            viewModel.ProductList = new List<ProductView>();
             var categories = manager.GetAllCategory("Sculture");
             foreach (var category in categories)
             {
-                var productManager = new ProductManager();
                 var productList = manager.GetAllCategoryProduct(category.Name);
                 foreach (var product in productList)
                 {
-                    viewModel.ProductList.Add(product);
-                    viewModel.ArtistList.Add(manager.GetArtist(product.ArtistId.ToString()));
+                    var productView = new ProductView()
+                    {
+                        Product = product,
+                        Artist = manager.GetArtist(product.ArtistId.ToString())
+                    };
+                    viewModel.ProductList.Add(productView);
                 }
             }
             return View(viewModel);
@@ -71,16 +84,20 @@ namespace Dadart.Portal.Controllers
             ViewBag.Quote =
                 "\"La compietezza dell'individuo si afferma in seguito a uno stato di follia...\" Tristan Tzara, La spontaneità dadaista 1918";
             var manager = new CatalogManager();
-            var viewModel = new IndexViewModel();
+            var viewModel = new MainViewModel();
+            viewModel.ProductList = new List<ProductView>();
             var categories = manager.GetAllCategory("Disegni");
             foreach (var category in categories)
-            {
-                var productManager = new ProductManager();
+            {                
                 var productList = manager.GetAllCategoryProduct(category.Name);
                 foreach (var product in productList)
                 {
-                    viewModel.ProductList.Add(product);
-                    viewModel.ArtistList.Add(manager.GetArtist(product.ArtistId.ToString()));
+                    var productView = new ProductView()
+                    {
+                        Product = product,
+                        Artist = manager.GetArtist(product.ArtistId.ToString())
+                    };
+                    viewModel.ProductList.Add(productView);
                 }
             }
             return View(viewModel);
@@ -91,16 +108,20 @@ namespace Dadart.Portal.Controllers
             ViewBag.Quote =
                 "\"...tutto è simile a ciò ch'è dissimile.\" Tristan Tzara, Manifesto sull'amore debole e l'amore amaro 1918";
             var manager = new CatalogManager();
-            var viewModel = new IndexViewModel();
+            var viewModel = new MainViewModel();
+            viewModel.ProductList = new List<ProductView>();
             var categories = manager.GetAllCategory("Fotografia");
             foreach (var category in categories)
-            {
-                var productManager = new ProductManager();
+            {                
                 var productList = manager.GetAllCategoryProduct(category.Name);
                 foreach (var product in productList)
                 {
-                    viewModel.ProductList.Add(product);
-                    viewModel.ArtistList.Add(manager.GetArtist(product.ArtistId.ToString()));
+                    var productView = new ProductView()
+                    {
+                        Product = product,
+                        Artist = manager.GetArtist(product.ArtistId.ToString())
+                    };
+                    viewModel.ProductList.Add(productView);
                 }
             }
             return View(viewModel);

@@ -19,9 +19,9 @@ namespace Dadart.BLL.Manager
         {
             try
             {
-                var response = Client.GetAsync("WebService.php/api/product/all").Result;
+                var response = Client.GetAsync("ws/WebService.php/api/products/all").Result;
                 if (response.IsSuccessStatusCode)
-                    return response.Content.ReadAsAsync<List<Product>>().Result;
+                    return response.Content.ReadAsAsync<ICollection<Product>>().Result.ToList();
                 throw new Exception();
             }
             catch (Exception)
@@ -51,9 +51,9 @@ namespace Dadart.BLL.Manager
         {
             try
             {
-                var response = Client.GetAsync("/WebService.php/api/catalog/" + catalogName).Result;
+                var response = Client.GetAsync("ws/WebService.php/api/catalog/" + catalogName).Result;
                 if (response.IsSuccessStatusCode)
-                    return response.Content.ReadAsAsync<List<Category>>().Result;
+                    return response.Content.ReadAsAsync<ICollection<Category>>().Result.ToList();
                 throw new Exception();
             }
             catch(Exception ex)
@@ -96,9 +96,9 @@ namespace Dadart.BLL.Manager
         {
             try
             {
-                var response = Client.GetAsync("/WebService.php/api/products/" + categorygName).Result;
+                var response = Client.GetAsync("ws/WebService.php/api/products/" + categorygName).Result;
                 if (response.IsSuccessStatusCode)
-                    return response.Content.ReadAsAsync<List<Product>>().Result;
+                    return response.Content.ReadAsAsync<ICollection<Product>>().Result.ToList();
                 throw new Exception();
             }
             catch (Exception ex)
